@@ -1,6 +1,7 @@
 package com.codecool.jpa.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Shows")
@@ -17,15 +18,18 @@ public class Show {
     private List<Season> seasons;
     @Transient
     private int numberOfSeasons;
+    @ElementCollection
+    private List<String> actors;
 
     public Show() {
 
     }
 
-    public Show(String title, Category category, String overview) {
+    public Show(String title, Category category, String overview, List<String> actors) {
         this.title = title;
         this.category = category;
         this.overview = overview;
+        this.actors = actors;
     }
 
     public int getId() {
@@ -75,4 +79,13 @@ public class Show {
     public void setNumberOfSeasons(int numberOfSeasons) {
         this.numberOfSeasons = numberOfSeasons;
     }
+
+    public List<String> getActors() {
+        return actors;
+    }
+
+    public void setActors(List<String> actors) {
+        this.actors = actors;
+    }
+
 }

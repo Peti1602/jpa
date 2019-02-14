@@ -1,6 +1,5 @@
 package com.codecool.jpa.Controller;
 
-import com.codecool.jpa.Repository.SeasonRepository;
 import com.codecool.jpa.Service.SeasonService;
 import com.codecool.jpa.Service.ShowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class RouteController {
@@ -40,4 +38,10 @@ public class RouteController {
         return "episode";
     }
 
+    @RequestMapping("/show/actor/{id}")
+    public String searchActorsOfShowById(@PathVariable(value = "id") int id, Model model){
+        model.addAttribute("title", "Actors");
+        model.addAttribute("actors", showService.getAllActorsOfShowById(id));
+        return "actor";
+    }
 }

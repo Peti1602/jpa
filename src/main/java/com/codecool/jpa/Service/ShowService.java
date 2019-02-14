@@ -4,8 +4,10 @@ import com.codecool.jpa.Model.Season;
 import com.codecool.jpa.Model.Show;
 import com.codecool.jpa.Repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
 import java.util.List;
 
 @Service
@@ -24,6 +26,10 @@ public class ShowService {
 
     public List<Season> getAllSeasonOfShowById(int id){
         return showRepository.findFirstById(id).getSeasons();
+    }
+
+    public List<String> getAllActorsOfShowById(int id){
+        return showRepository.findFirstById(id).getActors();
     }
 
 }

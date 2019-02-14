@@ -13,6 +13,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @SpringBootApplication
 public class JpaApplication {
 
@@ -32,7 +35,10 @@ public class JpaApplication {
     @Bean
     public CommandLineRunner init(){
         return args ->{
-            Show show1 = new Show("Game of Thrones", Category.Fantasy, "Seven noble families fight for control of the mythical land of Westeros.");
+            List<String> actors = new ArrayList<>();
+            actors.add("Emilia Clarke");
+            actors.add("Kit Harington");
+            Show show1 = new Show("Game of Thrones", Category.Fantasy, "Seven noble families fight for control of the mythical land of Westeros.", actors);
             showRepository.save(show1);
             Season season1 = new Season("Season 1", "Trouble is brewing in the Seven Kingdoms of Westeros.", show1);
             seasonRepository.save(season1);
