@@ -15,6 +15,8 @@ public class Show {
     private String overview;
     @OneToMany(mappedBy = "show")
     private List<Season> seasons;
+    @Transient
+    private int numberOfSeasons;
 
     public Show() {
 
@@ -66,4 +68,11 @@ public class Show {
         this.seasons = seasons;
     }
 
+    public int getNumberOfSeasons() {
+        return numberOfSeasons;
+    }
+
+    public void setNumberOfSeasons(int numberOfSeasons) {
+        this.numberOfSeasons = numberOfSeasons;
+    }
 }

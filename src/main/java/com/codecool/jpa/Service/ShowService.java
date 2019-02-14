@@ -15,7 +15,11 @@ public class ShowService {
     private ShowRepository showRepository;
 
     public List<Show> getAllShows(){
-        return showRepository.findAll();
+        List<Show> shows = showRepository.findAll();
+        for(Show show : shows){
+            show.setNumberOfSeasons(show.getSeasons().size());
+        }
+        return shows;
     }
 
     public List<Season> getAllSeasonOfShowById(int id){

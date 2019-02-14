@@ -14,6 +14,7 @@
             <th>Show Title</th>
             <th>Show Category</th>
             <th>Show Overview</th>
+            <th>Number Of Seasons</th>
         </tr>
         </thead>
         <tbody th:each="show : ${shows}">
@@ -22,6 +23,7 @@
             <td th:text="${show.title}">title</td>
             <td th:text="${show.category}">category</td>
             <td th:text="${show.overview}">overview</td>
+            <td th:text="${show.numberOfSeasons}">numberOfSeasons</td>
         </tr>
         </tbody>
     </table>
