@@ -16,7 +16,7 @@ public class Show {
     @OneToMany(mappedBy = "show")
     private List<Season> seasons;
 
-    private Show() {
+    public Show() {
 
     }
 

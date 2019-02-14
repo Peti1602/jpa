@@ -13,7 +13,7 @@ public class Season {
     @ManyToOne
     private Show show;
 
-    private Season() {
+    public Season() {
 
     }
 
