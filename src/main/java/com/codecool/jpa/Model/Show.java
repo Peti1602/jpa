@@ -13,7 +13,6 @@ public class Show {
     @Enumerated(EnumType.STRING)
     private Category category;
     private String overview;
-    private List<String> actors;
     @OneToMany(mappedBy = "show")
     private List<Season> seasons;
 
@@ -21,11 +20,10 @@ public class Show {
 
     }
 
-    public Show(String title, Category category, String overview, List<String> actors) {
+    public Show(String title, Category category, String overview) {
         this.title = title;
         this.category = category;
         this.overview = overview;
-        this.actors = actors;
     }
 
     public int getId() {
@@ -58,14 +56,6 @@ public class Show {
 
     public void setOverview(String overview) {
         this.overview = overview;
-    }
-
-    public List<String> getActors() {
-        return actors;
-    }
-
-    public void setActors(List<String> actors) {
-        this.actors = actors;
     }
 
     public List<Season> getSeasons() {
