@@ -53,5 +53,5 @@ public class Season {
     public void setShow(Show show) {
         this.show = show;
     }
-    
+
 }
