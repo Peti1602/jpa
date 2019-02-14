@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead class="thead-light">
+        <tr>
+            <th>Season ID</th>
+            <th>Season Title</th>
+            <th>Season Overview</th>
+            <th>Show Title</th>
+        </tr>
+        </thead>
+        <tbody th:each="season : ${seasons}">
+        <tr>
+            <td th:text="${season.id}">id</td>
+            <td th:text="${season.title}">title</td>
+            <td th:text="${season.overview}">overview</td>
+            <td th:text="${season.show.title}">show.title</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

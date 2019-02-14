@@ -1,5 +1,6 @@
 package com.codecool.jpa.Service;
 
+import com.codecool.jpa.Model.Season;
 import com.codecool.jpa.Model.Show;
 import com.codecool.jpa.Repository.ShowRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,10 @@ public class ShowService {
 
     public List<Show> getAllShows(){
         return showRepository.findAll();
+    }
+
+    public List<Season> getAllSeasonOfShowById(int id){
+        return showRepository.findFirstById(id).getSeasons();
     }
 
 }

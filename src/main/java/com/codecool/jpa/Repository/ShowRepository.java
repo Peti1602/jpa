@@ -9,4 +9,6 @@ public interface ShowRepository extends JpaRepository<Show, Integer> {
 
     List<Show> findAll();
 
+    Show findFirstById(int id);
+
 }
