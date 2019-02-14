@@ -1,9 +1,6 @@
 package com.codecool.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "Seasons")
 public class Season {
@@ -13,6 +10,8 @@ public class Season {
     private int id;
     private String title;
     private String overview;
+    @ManyToOne
+    private Show show;
 
     private Season() {
 
@@ -47,4 +46,12 @@ public class Season {
         this.overview = overview;
     }
 
+    public Show getShow() {
+        return show;
+    }
+
+    public void setShow(Show show) {
+        this.show = show;
+    }
+    
 }

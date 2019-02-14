@@ -14,6 +14,8 @@ public class Show {
     private Category category;
     private String overview;
     private List<String> actors;
+    @OneToMany(mappedBy = "show")
+    private List<Season> seasons;
 
     private Show() {
 
@@ -64,6 +66,14 @@ public class Show {
 
     public void setActors(List<String> actors) {
         this.actors = actors;
+    }
+
+    public List<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
     }
 
 }
