@@ -1,10 +1,9 @@
 package com.codecool.jpa.Model;
 
 import javax.persistence.*;
-import java.util.List;
 
-@Entity(name = "Seasons")
-public class Season {
+@Entity(name = "Episodes")
+public class Episode {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -12,18 +11,16 @@ public class Season {
     private String title;
     private String overview;
     @ManyToOne
-    private Show show;
-    @OneToMany(mappedBy = "season")
-    private List<Episode> episodes;
+    private Season season;
 
-    public Season() {
+    public Episode() {
 
     }
 
-    public Season(String title, String overview, Show show) {
+    public Episode(String title, String overview, Season season) {
         this.title = title;
         this.overview = overview;
-        this.show = show;
+        this.season = season;
     }
 
     public int getId() {
@@ -50,20 +47,12 @@ public class Season {
         this.overview = overview;
     }
 
-    public Show getShow() {
-        return show;
+    public Season getSeason() {
+        return season;
     }
 
-    public void setShow(Show show) {
-        this.show = show;
-    }
-
-    public List<Episode> getEpisodes() {
-        return episodes;
-    }
-
-    public void setEpisodes(List<Episode> episodes) {
-        this.episodes = episodes;
+    public void setSeason(Season season) {
+        this.season = season;
     }
 
 }
