@@ -1,9 +1,6 @@
 package com.codecool.jpa.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "Shows")
@@ -13,7 +10,8 @@ public class Show {
     @Id
     private int id;
     private String title;
-    private String category;
+    @Enumerated(EnumType.STRING)
+    private Category category;
     private String overview;
     private List<String> actors;
 
@@ -21,7 +19,7 @@ public class Show {
 
     }
 
-    public Show(String title, String category, String overview, List<String> actors) {
+    public Show(String title, Category category, String overview, List<String> actors) {
         this.title = title;
         this.category = category;
         this.overview = overview;
@@ -44,11 +42,11 @@ public class Show {
         this.title = title;
     }
 
-    public String getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
