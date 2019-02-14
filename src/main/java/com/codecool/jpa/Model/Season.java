@@ -4,28 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.List;
 
-@Entity(name = "Shows")
-public class Show {
+@Entity(name = "Seasons")
+public class Season {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
     private String title;
-    private String category;
     private String overview;
-    private List<String> actors;
 
-    private Show() {
+    private Season() {
 
     }
 
-    public Show(String title, String category, String overview, List<String> actors) {
+    public Season(String title, String overview) {
         this.title = title;
-        this.category = category;
         this.overview = overview;
-        this.actors = actors;
     }
 
     public int getId() {
@@ -44,14 +39,6 @@ public class Show {
         this.title = title;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getOverview() {
         return overview;
     }
@@ -59,13 +46,5 @@ public class Show {
     public void setOverview(String overview) {
         this.overview = overview;
     }
-
-    public List<String> getActors() {
-        return actors;
-    }
-
-    public void setActors(List<String> actors) {
-        this.actors = actors;
-    }
-
+    
 }
