@@ -17,9 +17,10 @@ public class Season {
 
     }
 
-    public Season(String title, String overview) {
+    public Season(String title, String overview, Show show) {
         this.title = title;
         this.overview = overview;
+        this.show = show;
     }
 
     public int getId() {
